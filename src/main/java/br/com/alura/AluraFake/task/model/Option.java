@@ -1,18 +1,66 @@
 package br.com.alura.AluraFake.task.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Option {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Length(min = 4, max = 80)
+    @Column(name = "option", nullable = false)
+    @NotBlank
     private String option;
 
     private Boolean isCorrect;
 
+    @ManyToOne
+    private Activity activity;
 
+    @Deprecated
+    public Option() {
+    }
 
+    public Option(Long id, String option, Boolean isCorrect, Activity activity) {
+        this.id = id;
+        this.option = option;
+        this.isCorrect = isCorrect;
+        this.activity = activity;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getOption() {
+        return option;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
+    }
+
+    public Boolean getCorrect() {
+        return isCorrect;
+    }
+
+    public void setCorrect(Boolean correct) {
+        isCorrect = correct;
+    }
+
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
+    }
 }
