@@ -5,22 +5,20 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
-public class SingleChoiceActivity extends Activity {
+public class MultipleChoiceActivity extends Activity {
 
     @OneToMany(mappedBy = "activity", cascade = CascadeType.ALL, orphanRemoval = true)
-   private Set<Option> options = new LinkedHashSet<>();
+    private Set<Option> options = new LinkedHashSet<>();
 
     @Deprecated
-    public SingleChoiceActivity() {
+    public MultipleChoiceActivity() {
     }
 
-    public SingleChoiceActivity(Long id, String statement, Integer order, Course course) {
+    public MultipleChoiceActivity(Long id, String statement, Integer order, Course course) {
         super(id, statement, order, course);
     }
 
@@ -28,7 +26,8 @@ public class SingleChoiceActivity extends Activity {
         return options;
     }
 
-    public void addOption(String option, boolean isCorrect) {
-        this.options.add(new Option(option, isCorrect, this));
+    public void addOption(String text, boolean isCorrect) {
+        this.options.add(new Option(text, isCorrect, this));
     }
+
 }

@@ -2,6 +2,7 @@ package br.com.alura.AluraFake.course;
 
 import br.com.alura.AluraFake.course.dto.NewCourseDTO;
 import br.com.alura.AluraFake.course.model.Course;
+import br.com.alura.AluraFake.course.repository.CourseRepository;
 import br.com.alura.AluraFake.user.*;
 import br.com.alura.AluraFake.user.model.User;
 import com.fasterxml.jackson.databind.ObjectMapper;

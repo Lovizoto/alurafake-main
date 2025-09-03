@@ -14,7 +14,7 @@ public class Option {
     @Length(min = 4, max = 80)
     @Column(name = "option", nullable = false)
     @NotBlank
-    private String option;
+    private String text;
 
     private Boolean isCorrect;
 
@@ -25,9 +25,8 @@ public class Option {
     public Option() {
     }
 
-    public Option(Long id, String option, Boolean isCorrect, Activity activity) {
-        this.id = id;
-        this.option = option;
+    public Option(String text, Boolean isCorrect, Activity activity) {
+        this.text = text;
         this.isCorrect = isCorrect;
         this.activity = activity;
     }
@@ -40,12 +39,12 @@ public class Option {
         this.id = id;
     }
 
-    public String getOption() {
-        return option;
+    public String getText() {
+        return text;
     }
 
-    public void setOption(String option) {
-        this.option = option;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public Boolean getCorrect() {
