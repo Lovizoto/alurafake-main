@@ -70,15 +70,15 @@ curl -w "%{http_code}\n" -X POST http://localhost:8080/task/new/singlechoice \
         "order": 2,
         "options": [
             {
-                "option": "Java",
+                "text": "Java",
                 "isCorrect": true
             },
             {
-                "option": "Python",
+                "text": "Python",
                 "isCorrect": false
             },
             {
-                "option": "Ruby",
+                "text": "Ruby",
                 "isCorrect": false
             }
         ]
@@ -104,15 +104,15 @@ curl -w "%{http_code}\n" -X POST http://localhost:8080/task/new/singlechoice \
         "order": 2,
         "options": [
             {
-                "option": "Java",
+                "text": "Java",
                 "isCorrect": true
             },
             {
-                "option": "Spring",
+                "text": "Spring",
                 "isCorrect": true
             },
             {
-                "option": "Ruby",
+                "text": "Ruby",
                 "isCorrect": false
             }
         ]

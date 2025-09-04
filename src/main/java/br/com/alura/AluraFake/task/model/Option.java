@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
+@Table(name = "`option`")
 public class Option {
 
     @Id
@@ -12,11 +13,11 @@ public class Option {
     private Long id;
 
     @Length(min = 4, max = 80)
-    @Column(name = "option", nullable = false)
+    @Column(name = "text", nullable = false)
     @NotBlank
     private String text;
 
-    private Boolean isCorrect;
+    private boolean isCorrect;
 
     @ManyToOne
     private Activity activity;
@@ -25,7 +26,7 @@ public class Option {
     public Option() {
     }
 
-    public Option(String text, Boolean isCorrect, Activity activity) {
+    public Option(String text, boolean isCorrect, Activity activity) {
         this.text = text;
         this.isCorrect = isCorrect;
         this.activity = activity;
@@ -47,11 +48,11 @@ public class Option {
         this.text = text;
     }
 
-    public Boolean getCorrect() {
+    public boolean getCorrect() {
         return isCorrect;
     }
 
-    public void setCorrect(Boolean correct) {
+    public void setCorrect(boolean correct) {
         isCorrect = correct;
     }
 

@@ -1,20 +1,22 @@
 package br.com.alura.AluraFake.task.model;
 
 import br.com.alura.AluraFake.course.model.Course;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
+@DiscriminatorValue("SINGLE_CHOICE")
 public class SingleChoiceActivity extends Activity {
 
     @OneToMany(mappedBy = "activity", cascade = CascadeType.ALL, orphanRemoval = true)
    private Set<Option> options = new LinkedHashSet<>();
+
+    @Override
+    public String getType() {
+        return "SINGLE_CHOICE";
+    }
 
     @Deprecated
     public SingleChoiceActivity() {
@@ -28,7 +30,7 @@ public class SingleChoiceActivity extends Activity {
         return options;
     }
 
-    public void addOption(String option, boolean isCorrect) {
-        this.options.add(new Option(option, isCorrect, this));
+    public void addOption(String text, boolean isCorrect) {
+        this.options.add(new Option(text, isCorrect, this));
     }
 }

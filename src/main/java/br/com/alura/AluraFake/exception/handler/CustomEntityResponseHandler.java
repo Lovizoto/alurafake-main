@@ -22,6 +22,9 @@ public class CustomEntityResponseHandler {
     // Handler para exceções genéricas (500 Internal Server Error)
     @ExceptionHandler(Exception.class)
     public final ResponseEntity<ExceptionResponse> handleException(Exception exception, WebRequest request) {
+
+//        exception.printStackTrace();
+
         ExceptionResponse exceptionResponse = new ExceptionResponse(
                 new Date(),
                 "An unexpected internal server error has occurred.",
@@ -59,7 +62,7 @@ public class CustomEntityResponseHandler {
     public final ResponseEntity<ExceptionResponse> handleDataIntegrityException(Exception exception, WebRequest request) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(
                 new Date(),
-                "Conflito de dados: o recurso já pode existir ou viola um regra de negócio.", //não expõe lógica do banco de dados
+                "Data conflict: the resource may already exist or violates a business rule.", //não expõe lógica do banco de dados
                 exception.getMessage()
         );
         return new ResponseEntity<>(exceptionResponse, HttpStatus.CONFLICT);

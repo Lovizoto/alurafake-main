@@ -18,12 +18,14 @@ public abstract class Activity {
     @NotBlank
     private String statement; //enunciado da questão
 
-    @Column(name = "order", nullable = false)
+    @Column(name = "`order`", nullable = false)
     private Integer order;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false) //optional false vai evitar de salvar nulo no course_id
     @JoinColumn(name = "course_id")
     private Course course;
+
+    public abstract String getType();
 
     @Deprecated
     public Activity() {
