@@ -23,10 +23,11 @@ public class MultipleChoiceActivity extends Activity {
 
     @Deprecated
     public MultipleChoiceActivity() {
+        super();
     }
 
-    public MultipleChoiceActivity(Long id, String statement, Integer order, Course course) {
-        super(id, statement, order, course);
+    public MultipleChoiceActivity(String statement, Integer order, Course course) {
+        super(statement, order, course);
     }
 
     public Set<Option> getOptions() {

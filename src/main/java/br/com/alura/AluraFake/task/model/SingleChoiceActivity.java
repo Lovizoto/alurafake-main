@@ -20,10 +20,11 @@ public class SingleChoiceActivity extends Activity {
 
     @Deprecated
     public SingleChoiceActivity() {
+        super();
     }
 
-    public SingleChoiceActivity(Long id, String statement, Integer order, Course course) {
-        super(id, statement, order, course);
+    public SingleChoiceActivity(String statement, Integer order, Course course) {
+        super(statement, order, course);
     }
 
     public Set<Option> getOptions() {

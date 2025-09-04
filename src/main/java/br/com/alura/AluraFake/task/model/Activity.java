@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
+@DiscriminatorColumn(name = "`TYPE`")
 public abstract class Activity {
 
     @Id
@@ -31,8 +32,7 @@ public abstract class Activity {
     public Activity() {
     }
 
-    public Activity(Long id, String statement, Integer order, Course course) {
-        this.id = id;
+    public Activity(String statement, Integer order, Course course) {
         this.statement = statement;
         this.order = order;
         this.course = course;

@@ -15,10 +15,11 @@ public class OpenTextActivity extends Activity {
 
     @Deprecated
     public OpenTextActivity() {
+        super();
     }
 
-    public OpenTextActivity(Long id, String statement, Integer order, Course course) {
-        super(id, statement, order, course);
+    public OpenTextActivity(String statement, Integer order, Course course) {
+        super(statement, order, course);
     }
 
 }
