@@ -35,12 +35,12 @@ public abstract class ActivityMapper {
                 .orElseThrow(() -> new ResourceNotFoundException("Course not found with id: " + id));
     }
 
-    @Mapping(source = "text", target = "option")
-    @Mapping(source = "correct", target = "isCorrect")
+    @Mapping(source = "text", target = "text")
+    @Mapping(source = "isCorrect", target = "isCorrect")
     public abstract OptionDTO toOptionDTO(Option entity);
 
-    @Mapping(source = "option", target = "text")
-    @Mapping(source = "isCorrect", target = "correct")
+    @Mapping(source = "text", target = "text")
+    @Mapping(source = "isCorrect", target = "isCorrect")
     public abstract Option toOptionEntity(OptionDTO dto);
 
     @Mapping(target = "type", expression = "java(activity.getType())")

@@ -50,12 +50,12 @@ public class Option {
         this.text = text;
     }
 
-    public boolean getCorrect() {
-        return isCorrect;
+    public boolean getIsCorrect() {
+        return this.isCorrect;
     }
 
-    public void setCorrect(boolean correct) {
-        isCorrect = correct;
+    public void setIsCorrect(boolean isCorrect) {
+        this.isCorrect = isCorrect;
     }
 
     public Activity getActivity() {

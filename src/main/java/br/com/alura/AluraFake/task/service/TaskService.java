@@ -120,13 +120,13 @@ public class TaskService {
     private void verifyOptions(String statement, List<OptionDTO> options) {
 
         boolean matchStatement = options.stream()
-                .anyMatch(o -> o.option().equalsIgnoreCase(statement));
+                .anyMatch(o -> o.text().equalsIgnoreCase(statement));
         if (matchStatement) {
             throw new BusinessRuleException("Options cannot have the same text as the statement.");
         }
 
         Set<String> uniqueTextInOptions = options.stream()
-                .map(OptionDTO::option)
+                .map(OptionDTO::text)
                 .collect(Collectors.toSet());
 
         if (uniqueTextInOptions.size() < options.size()) {
