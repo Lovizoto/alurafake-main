@@ -29,4 +29,5 @@ public class UserListItemDTO implements Serializable {
         return role;
     }
 
+
 }

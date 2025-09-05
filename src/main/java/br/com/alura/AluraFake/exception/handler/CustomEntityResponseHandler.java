@@ -2,6 +2,7 @@ package br.com.alura.AluraFake.exception.handler;
 
 import br.com.alura.AluraFake.exception.BusinessRuleException;
 import br.com.alura.AluraFake.exception.ExceptionResponse;
+import br.com.alura.AluraFake.exception.InvalidJwtAuthenticationException;
 import br.com.alura.AluraFake.exception.ResourceNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
+import javax.naming.AuthenticationException;
 import java.util.Date;
 import java.util.stream.Collectors;
 
@@ -75,6 +77,25 @@ public class CustomEntityResponseHandler {
                 ex.getMessage(),
                 request.getDescription(false));
         return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(InvalidJwtAuthenticationException.class) //retorna 403
+    public final ResponseEntity<ExceptionResponse> handleInvalidJwtAuthenticationException(Exception ex, WebRequest request) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(
+                new Date(),
+                ex.getMessage(),
+                request.getDescription(false));
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public final ResponseEntity<ExceptionResponse> handleAuthenticationException(Exception exception, WebRequest request) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(
+                new Date(),
+                "Authentication failed: Invalid credentials.", // Mensagem genérica por segurança
+                request.getDescription(false)
+        );
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.FORBIDDEN); // 403 Forbidden
     }
 
 }

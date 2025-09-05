@@ -20,7 +20,7 @@ public class MockTaskFactory {
     public static final Long validInstructorId = 10L;
 
     public static User createValidInstructor() {
-        User instructor = new User("Instrutor Teste", "instrutor@test.com", Role.INSTRUCTOR);
+        User instructor = new User("Instrutor Teste", "instrutor@test.com", Role.INSTRUCTOR, "123456");
         return instructor;
     }
 

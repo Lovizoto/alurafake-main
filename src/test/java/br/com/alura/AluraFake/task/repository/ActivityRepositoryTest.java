@@ -72,10 +72,10 @@ class ActivityRepositoryTest {
         testEntityManager.persistAndFlush(MockTaskFactory.createOpenTextActivity(course, 2));
 
         //Act
-        int count = activityRepository.countByCourseId(course.getId());
+        Long count = activityRepository.countByCourseId(course.getId());
 
         //Assert
-        assertThat(count).isEqualTo(2);
+        assertThat(count).isEqualTo(2L);
 
     }
 

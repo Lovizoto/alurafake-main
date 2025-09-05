@@ -51,7 +51,7 @@ class TaskServiceTest {
         //Arrange
         when(courseRepository.findById(validDTO.courseId())).thenReturn(Optional.of(validCourse));
         when(activityRepository.existsByCourseIdAndStatement(any(), any())).thenReturn(false);
-        when(activityRepository.countByCourseId(any())).thenReturn(0);
+        when(activityRepository.countByCourseId(any())).thenReturn(0L);
         when(activityMapper.toEntity(any(OpenTextDTO.class))).thenReturn(MockTaskFactory.createOpenTextActivity(validCourse, 1));
 
         //Act

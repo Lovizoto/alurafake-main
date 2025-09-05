@@ -38,4 +38,6 @@ public class MultipleChoiceActivity extends Activity {
         this.options.add(new Option(text, isCorrect, this));
     }
 
+
+
 }

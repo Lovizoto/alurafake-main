@@ -1,4 +1,4 @@
 package br.com.alura.AluraFake.security.dto;
 
-public record AuthResponseDTO() {
+public record AuthResponseDTO(String token) {
 }

@@ -96,8 +96,8 @@ class UserControllerTest {
 
     @Test
     void listAllUsers__should_list_all_users() throws Exception {
-        User user1 = new User("User 1", "user1@test.com",Role.STUDENT);
-        User user2 = new User("User 2", "user2@test.com",Role.STUDENT);
+        User user1 = new User("User 1", "user1@test.com",Role.STUDENT, "123456");
+        User user2 = new User("User 2", "user2@test.com",Role.STUDENT, "123456");
         when(userRepository.findAll()).thenReturn(Arrays.asList(user1, user2));
 
         mockMvc.perform(get("/user/all")

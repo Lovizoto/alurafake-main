@@ -1,3 +1,28 @@
+# Autenticação na API
+A API utiliza autenticação **Tokens JWT. Para acesso dos seus endpoints protegidos é necessário
+a autenticação, onde o usuário receberá um token para suas requisições subsequentes. 
+Como o projeto tem fins de teste, as senhas e os usuários estão no package infra na classe
+DataSeeder, lá tem seus e-mails e passwords.
+
+## Obtenção do Token de Acesso(Login)
+Para se autenticar, envie uma requisição **POST** para o endpoint `/auth/login` com o e-mail e a senha de um usuário cadastrado no **body** da requisição.
+
+### Endpoint
+### Corpo da Requisição (JSON)
+```json
+{
+  "email": "paulo@alura.com.br",
+  "password": "senha_do_usuario"
+}
+```
+
+Com o token em mãos, você pode acessar os endpoints protegidos da API.
+Para isso, inclua o token no cabeçalho Authorization de cada requisição, prefixado com a palavra Bearer.
+
+```
+Authorization: Bearer <seu_token_jwt_aqui>
+```
+
 # Case Tecnico Alura
 Seja bem-vindo ao teste para desenvolvedor Java Pleno da Alura. Neste
 desafio, simulamos uma parte do nosso domínio para que você possa demonstrar seus conhecimentos. 

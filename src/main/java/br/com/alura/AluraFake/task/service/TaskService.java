@@ -103,7 +103,7 @@ public class TaskService {
             throw new BusinessRuleException("Statement already exists for this course.");
         }
 
-        int activityCount = activityRepository.countByCourseId(course.getId());
+        int activityCount = activityRepository.countByCourseId(course.getId()).intValue();
         if (order > activityCount + 1) {
             throw new BusinessRuleException("Invalid order. Next valid order in sequence is " + (activityCount +1));
         }
@@ -111,7 +111,7 @@ public class TaskService {
     }
 
     private void handleShiftingOrder(Long courseId, int order) {
-        int activityCount = activityRepository.countByCourseId(courseId);
+        int activityCount = activityRepository.countByCourseId(courseId).intValue();
         if (order <= activityCount) {
             activityRepository.shiftOrdersForward(courseId, order);
         }

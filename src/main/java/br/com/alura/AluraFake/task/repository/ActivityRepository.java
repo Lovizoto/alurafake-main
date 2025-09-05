@@ -10,9 +10,10 @@ import java.util.List;
 
 @Repository
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
+
     boolean existsByCourseIdAndStatement(Long courseId, String statement);
 
-    int countByCourseId(Long id);
+    Long countByCourseId(Long id);
 
     @Modifying
     @Query("UPDATE Activity a SET a.order = a.order + 1 WHERE a.course.id = :courseId AND a.order >= :order")
