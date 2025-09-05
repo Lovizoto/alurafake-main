@@ -30,7 +30,7 @@ public class MockInstructorFactory {
 
     public static Course createPublishedCourse(User instructor) {
         Course course = new Course("Curso Publicado", "Descrição do curso publicado", instructor);
-//        course.setId(1L);
+        course.setId(1L);
         course.setStatus(Status.PUBLISHED);
         course.setPublishedAt(SAMPLE_PUBLISHED_AT);
         return course;
@@ -38,7 +38,7 @@ public class MockInstructorFactory {
 
     public static Course createBuildingCourse(User instructor) {
         Course course = new Course("Curso em Construção", "Descrição do curso em construção", instructor);
-//        course.setId(2L);
+        course.setId(2L);
         course.setStatus(Status.BUILDING);
         course.setPublishedAt(null);
         return course;
