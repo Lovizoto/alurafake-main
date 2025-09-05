@@ -26,7 +26,7 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class) // Habilita o Mockito para a classe
 @DisplayName("Tests for InstructorService")
-class InstructorServiceTest {
+public class InstructorServiceTest {
 
     @Mock
     private UserRepository userRepository;
@@ -68,8 +68,6 @@ class InstructorServiceTest {
 
         when(instructorMapper.toInfoDTO(publishedCourse, 5L)).thenReturn(MockInstructorFactory.createPublishedCourseInfoDTO());
         when(instructorMapper.toInfoDTO(buildingCourse, 3L)).thenReturn(MockInstructorFactory.createBuildingCourseInfoDTO());
-
-        
 
         // Act
         InstructorReportDTO report = instructorService.createCoursesReport(MockInstructorFactory.VALID_INSTRUCTOR_ID);

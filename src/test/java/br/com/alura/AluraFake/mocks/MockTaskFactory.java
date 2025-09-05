@@ -6,7 +6,10 @@ import br.com.alura.AluraFake.task.dto.MultipleChoiceDTO;
 import br.com.alura.AluraFake.task.dto.OpenTextDTO;
 import br.com.alura.AluraFake.task.dto.OptionDTO;
 import br.com.alura.AluraFake.task.dto.SingleChoiceDTO;
+import br.com.alura.AluraFake.task.model.Activity;
+import br.com.alura.AluraFake.task.model.MultipleChoiceActivity;
 import br.com.alura.AluraFake.task.model.OpenTextActivity;
+import br.com.alura.AluraFake.task.model.SingleChoiceActivity;
 import br.com.alura.AluraFake.user.Role;
 import br.com.alura.AluraFake.user.model.User;
 
@@ -102,5 +105,30 @@ public class MockTaskFactory {
                 options
         );
     }
+
+    public static List<Activity> createValidActivitiesList(Course course) {
+        return List.of(
+                MockTaskFactory.createOpenTextActivity(course, 1),
+                createSingleChoiceActivity(course, 2),
+                createMultipleChoiceActivity(course, 3)
+        );
+    }
+
+    private static SingleChoiceActivity createSingleChoiceActivity(Course course, int order) {
+        SingleChoiceActivity activity = new SingleChoiceActivity(
+                "Enunciado Single Choice " + order, order, course
+        );
+        activity.setId((long) order * 10 + 2);
+        return activity;
+    }
+
+    private static MultipleChoiceActivity createMultipleChoiceActivity(Course course, int order) {
+        MultipleChoiceActivity activity = new MultipleChoiceActivity(
+                "Enunciado Multiple Choice " + order, order, course
+        );
+        activity.setId((long) order * 10 + 3);
+        return activity;
+    }
+
 
 }
