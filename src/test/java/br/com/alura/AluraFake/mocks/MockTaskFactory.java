@@ -42,6 +42,12 @@ public class MockTaskFactory {
                 1);
     }
 
+    public static OpenTextDTO createValidOpenTextDTO(Long courseId) {
+        return new OpenTextDTO(courseId,
+                "Statement aberto válido",
+                1);
+    }
+
     public static SingleChoiceDTO createValidSingleChoiceDTO() {
         var options = List.of(
                 new OptionDTO("Java", true),

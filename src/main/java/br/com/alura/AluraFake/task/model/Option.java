@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "`option`")
 public class Option {
@@ -63,4 +65,18 @@ public class Option {
     public void setActivity(Activity activity) {
         this.activity = activity;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Option option = (Option) o;
+        return Objects.equals(text, option.text);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(text);
+    }
+
 }

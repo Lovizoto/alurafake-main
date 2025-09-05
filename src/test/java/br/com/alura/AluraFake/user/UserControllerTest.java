@@ -39,8 +39,10 @@ class UserControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(newUserDTO)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$[0].field").value("email"))
-                .andExpect(jsonPath("$[0].message").isNotEmpty());
+//                .andExpect(jsonPath("$[0].field").value("email"))
+//                .andExpect(jsonPath("$[0].message").isNotEmpty());
+                .andExpect(jsonPath("$.message").value("Validation failed for argument(s)"))
+                .andExpect(jsonPath("$.details").value("email: must not be blank"));
     }
 
     @Test
@@ -54,8 +56,10 @@ class UserControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(newUserDTO)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$[0].field").value("email"))
-                .andExpect(jsonPath("$[0].message").isNotEmpty());
+//                .andExpect(jsonPath("$[0].field").value("email"))
+//                .andExpect(jsonPath("$[0].message").isNotEmpty());
+                .andExpect(jsonPath("$.message").value("Validation failed for argument(s)"))
+                .andExpect(jsonPath("$.details").value("email: must be a well-formed email address"));
     }
 
     @Test

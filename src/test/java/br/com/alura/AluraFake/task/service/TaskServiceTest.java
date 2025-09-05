@@ -42,7 +42,7 @@ class TaskServiceTest {
     private TaskService taskService;
 
     @Test
-    void createOpenTextActivity() {
+    void createOpenTextActivity_withValidData_shouldSucceed() {
 
         //Arrange
         OpenTextDTO validDTO = MockTaskFactory.createValidOpenTextDTO();
@@ -65,7 +65,7 @@ class TaskServiceTest {
 
 
     @Test
-    void createActivityWhenCourseNotFound() {
+    void createSingleChoiceActivity_whenCourseNotFound_shouldThrowException() {
 
         //Arrange
         SingleChoiceDTO singleChoiceDTO = MockTaskFactory.createValidSingleChoiceDTO();
@@ -83,7 +83,7 @@ class TaskServiceTest {
     }
 
     @Test
-    void createActivityWhenStatementIsDuplicate() {
+    void createActivity_WhenStatementIsDuplicate_ShouldThrowException() {
 
         //Arrange
         SingleChoiceDTO singleChoiceDTO = MockTaskFactory.createValidSingleChoiceDTO();
